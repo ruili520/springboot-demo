@@ -4,24 +4,24 @@
     <resultMap id="user" type="com.ideal.springbootmybatisdemo.entity.IUser"/>
     <parameterMap id="user" type="com.ideal.springbootmybatisdemo.entity.IUser"/>
     <select id="findUserByUsername" parameterType="String" resultMap="user">
-        SELECT * FROM user
+        SELECT * FROM i_user
         WHERE user_name=#{1}
     </select>
 
     <update id="updateUserByUsername" parameterMap="user">
-        UPDATE USER SET USER_PASSWORD=#{user_password} WHERE USER_NAME=#{user_name}
+        UPDATE i_user SET user_password=#{userPassword} WHERE user_name=#{userName}
     </update>
 
     <delete id="deleteUserByUsername" parameterType="String">
-        DELETE FROM USER WHERE USER_NAME=#{1}
+        DELETE FROM i_user WHERE user_name=#{1}
     </delete>
 
     <!-- 使用alias自定义的parameterType-->
     <insert id="saveUser" parameterType="user">
-        INSERT INTO USER (user_password,user_name) VALUES (#{user_password},#{user_name})
+        INSERT INTO i_user(user_password,user_name) VALUES (#{userPassword},#{userName})
     </insert>
 
     <select id="getUserList" resultMap="user">
-        SELECT  * FROM USER
+        SELECT  * FROM i_user
     </select>
 </mapper>

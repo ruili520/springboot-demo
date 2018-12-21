@@ -8,11 +8,11 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-    IUser findUserByUsername(String username);
+    IUser findUserByUsername(String userName);
 
     void updateUserByUsername(IUser user);
 
-    void deleteUserByUsername(String username);
+    void deleteUserByUsername(String userName);
 
     void saveUser(IUser user);
 

@@ -6,48 +6,49 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
 public class UserController {
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
 
-    //http://localhost:8880/getUser?username=xiaoli2
+    //http://localhost:8880/getUser?userName=xiaoli2
     @RequestMapping("/getUser")
-    public String getUser(String username){
-        IUser user =userMapper.findUserByUsername(username);
-        return user!=null ? username+"的密码是："+user.getUserPassword():"不存在用户名为"+username+"的用户";
+    public String getUser(String userName){
+        IUser user =userMapper.findUserByUsername(userName);
+        return user!=null ? userName+"的密码是："+user.getUserPassword():"不存在用户名为"+userName+"的用户";
     }
 
-    //http://localhost:8880/updateUser?username=xiaoli2&password=123
+    //http://localhost:8880/updateUser?userName=xiaoli2&userPassword=123
     @RequestMapping("/updateUser")
-    public String updateUser(String password,String username){
-        IUser user = new IUser(username,password);
+    public String updateUser(String userPassword,String userName){
+        IUser user = new IUser(userName,userPassword);
         userMapper.updateUserByUsername(user);
         return "success!";
     }
 
 
-    //http://localhost:8880/addUser?username=xiaoli2&password=123
+    //http://localhost:8880/addUser?userName=xiaoli2&userPassword=123
     @RequestMapping("/addUser")
-    public String addUser(String username,String password){
-        IUser user = new IUser(username,password);
+    public String addUser(String userName,String userPassword){
+        IUser user = new IUser(userName,userPassword);
         userMapper.saveUser(user);
         return "success!";
     }
 
-    //http://localhost:8880/addUser?username=xiaoli2
+    //http://localhost:8880/addUser?userName=xiaoli2
     @RequestMapping("/deleteUser")
-    public String deleteUser(String username){
-        userMapper.deleteUserByUsername(username);
+    public String deleteUser(String userName){
+        userMapper.deleteUserByUsername(userName);
         return "success!";
     }
 
     //http://localhost:8880/getUserList
     @RequestMapping("/getUserList")
-    public List getUserList(String username, String password){
+    public List getUserList(String userName, String userPassword){
         return userMapper.getUserList();
     }
 }
