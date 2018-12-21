@@ -25,3 +25,8 @@
   >对应该项目中springboot-webjars-demo模块
 * [SpringBoot使用数据库](springboot-database-demo)
   >对应该项目中springboot-database-demo模块
+* [SpringBoot使用Mybatis](springboot-mybatis-demo)
+  >对应该项目中springboot-mybatis-demo模块
+* [SpringBoot使用Jpa](springboot-jpa-demo)
+  >对应该项目中springboot-jpa-demo模块
+
