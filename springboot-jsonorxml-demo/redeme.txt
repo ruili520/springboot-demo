@@ -1,0 +1,9 @@
+有些情况接口需要返回的是xml数据，在springboot中并不需要每次都转换一下数据格式，只需做一些微调整即可。
+新建一个springboot项目，加入依赖jackson-dataformat-xml，pom文件代码如下：
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
+
+另外需要在实体类上添加@XmlRootElement注解
+在对应的get方法上添加  @XmlElement  注解

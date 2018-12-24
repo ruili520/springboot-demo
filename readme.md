@@ -29,4 +29,9 @@
   >对应该项目中springboot-mybatis-demo模块
 * [SpringBoot使用Jpa](springboot-jpa-demo)
   >对应该项目中springboot-jpa-demo模块
-
+* [SpringBoot定时任务](springboot-settime-demo)
+  >对应该项目中springboot-settime-demo模块
+* [SpringBoot返回json和xml](springboot-jsonorxml-demo)
+  >对应该项目中springboot-jsonorxml-demo模块
+* [springboot整合redis](springboot-redis-demo)
+   >对应该项目中springboot-redis-demo模块
