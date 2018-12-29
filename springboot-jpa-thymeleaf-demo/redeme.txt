@@ -1,0 +1,79 @@
+本案例着重使用springboot和jpa，前端页面使用thymeleaf引擎来做的一个基础的增删改查的案例：
+使用jpa的好处，在配置文件中使用表格重构选项，新建实体类不必再去数据库中创建对应的数据表，jpa可根据实体类生成
+对应的数据表来供案例使用，故本次上传不再单独上传数据库文件
+
+对于jpa、thymeleaf，两种工具和引擎的使用，请参照该项目中对应的jpa和thymeleaf模块，案例会逐步去完善！
+
+使用jpa和thymeleaf作为项目的框架构建，首先要在pom文件中引入相应的依赖：
+本次引入依赖除了必要的web和test依赖，还需要三种  jpa mysql 和Thymeleaf，依赖如下
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+</dependency>
+
+第二步，需要对该项目做一个数据库链接的配置：（本人喜欢配置端口，故每个配置文件都有对应的端口配置）
+后期会加一个模块专门介绍springboot项目各种配置详解，在这里不再细分：
+##服务启动端口号
+server.port=8880
+
+spring.datasource.url=jdbc:mysql://localhost:3306/springboot-demo?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=true
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+
+spring.jpa.properties.hibernate.hbm2ddl.auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+spring.jpa.show-sql= true
+
+##false是关闭thymeleaf的缓存，不然在开发过程中修改页面不会立刻生效需要重启，生产可配置为true
+spring.thymeleaf.cache=false
+其中propertiesspring.thymeleaf.cache=false是关闭thymeleaf的缓存，不然在开发过程中修改页面不会立刻生效需要重启，
+生产可配置为true。
+在项目resources目录下会有两个文件夹：static目录用于放置网站的静态内容如css、js、图片；templates目录用于放置项目
+使用的页面模板。
+
+首先我们需要对启动类做一些修改，使得启动类对servlet进行支持：
+启动类的结构如下：
+//启动类需要添加Servlet的支持
+@SpringBootApplication
+public class SpringbootJpaThymeleafDemoApplication  extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(SpringbootJpaThymeleafDemoApplication.class);
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootJpaThymeleafDemoApplication.class, args);
+    }
+
+}
+
+然后依次书写entity、repository、service、controller层的实体类代码、业务层逻辑层代码，详参对应的java文件
+其中controller控制层里的相关方法中使用到的return值做一下解释：
+return "user/userEdit"; 代表会直接去resources目录下找相关的文件。
+return "redirect:/list"; 代表转发到对应的controller，这个示例就相当于删除内容之后自动调整到list请求，然后再输出到页面。
+
+针对该案例中使用到的thymeleaf页面引擎，做一个简单常用的解释：
+thymeleaf页面引擎使用的也是h5页面，在对应的模板文件夹新建**.html文件，在头部需要引入th标签
+   xmlns:th="http://www.thymeleaf.org"
+头部效果为：<!DOCTYPE HTML>
+          <html xmlns:th="http://www.thymeleaf.org">
+          <head>
+              <title>hello</title>
+              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+          </head>
+在thymeleaf的页面中使用css引用的写法为 th:href="@{/css/bootstarp.css}"
+跳转action方法为  th:action="@{/list}"
+<tr th:each="user : ${users}"> 这里会从controler层model set的对象去获取相关的内容，th:each表示会循环遍历对象内容。
+
+
+
