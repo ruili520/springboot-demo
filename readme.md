@@ -35,3 +35,13 @@
   >对应该项目中springboot-jsonorxml-demo模块
 * [springboot整合redis](springboot-redis-demo)
    >对应该项目中springboot-redis-demo模块
+* [SpringBoot使用LomBok](springboot-lombok-demo)
+   >对应该项目中springboot-lombok-demo模块
+* [SpringBoot使用Swagger2实现Restful API](springboot-swagger2-demo)
+   >对应该项目中springboot-swagger2-demo模块
+* [SpringBoot文件上传下载](springboot-updown-demo)
+   >对应该项目中springboot-updown-demo模块 
+* [springboot+jpa+thymeleaf增删改查示例](springboot-jpa-thymeleaf-demo)
+   >对应该项目中springboot-jpa-thymeleaf-demo模块 
+* [SpringBoot多数据源](springboot-moredatabase-demo)
+   >对应该项目中springboot-moredatabase-demo模块   

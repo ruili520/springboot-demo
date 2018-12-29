@@ -1,0 +1,19 @@
+项目中经常会有上传和下载的需求，本项目案例简述一下springboot项目中实现简单的上传和下载。
+新建springboot项目，前台页面使用的thymeleaf模板，其余的没有特别的配置，pom代码如下：
+引入thymeleaf依赖，以及非严格性H5代码规范的依赖：
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<dependency>
+        	<groupId>net.sourceforge.nekohtml</groupId>
+        	<artifactId>nekohtml</artifactId>
+        	<version>1.9.15</version>
+        </dependency>
+
+前台页面使用index.html，其中包含单个上传，下载，批量上传，index文件存放于resources 》templates
+在application.properties中配置项目启动端口号，和页面资源位置
+
+
+
