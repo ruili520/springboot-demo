@@ -44,4 +44,6 @@
 * [springboot+jpa+thymeleaf增删改查示例](springboot-jpa-thymeleaf-demo)
    >对应该项目中springboot-jpa-thymeleaf-demo模块 
 * [SpringBoot多数据源](springboot-moredatabase-demo)
-   >对应该项目中springboot-moredatabase-demo模块   
+   >对应该项目中springboot-moredatabase-demo模块
+* [SpringBoot使用aop切面](springboot-aop-demo)
+   >对应该项目中springboot-aop-demo模块      
