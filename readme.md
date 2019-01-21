@@ -46,4 +46,7 @@
 * [SpringBoot多数据源](springboot-moredatabase-demo)
    >对应该项目中springboot-moredatabase-demo模块
 * [SpringBoot使用aop切面](springboot-aop-demo)
-   >对应该项目中springboot-aop-demo模块      
+   >对应该项目中springboot-aop-demo模块 
+* [SpringBoot使用Mybatis-Generator ](springboot-mybatis-generator-demo)
+   >对应该项目中springboot-mybatis-generator-demo模块    
+       
